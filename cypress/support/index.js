@@ -20,5 +20,6 @@ import './commands'
 // require('./commands')
 
 beforeEach(() => {
-    cy.visit('http://automationpractice.com/index.php');
+    cy.clearCookies()
+    cy.visit('/index.php');
 });

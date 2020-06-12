@@ -8,7 +8,7 @@ class Category {
     ]
 
     validarAcessoACategoria(category){
-        cy.get('.breadcrumb').should('contain.text', `${category}`);
+        cy.get(el.breadcrumb).should('contain.text', `${category}`);
     }
 }
 

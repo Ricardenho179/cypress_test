@@ -1,6 +1,8 @@
-import homepage from '../support/pages/Home'
-import categorypage from '../support/pages/Category'
+/// <reference types="Cypress"/>
 
+import {homepage, categorypage,cadastropage, accountpage,criacadastropage} from '../support/pages'
+
+// import {homepage, categorypage, cadastropage} from '../support/pages'
 
 describe ('Fluxos do ecommerce', () => {
     
@@ -20,7 +22,7 @@ describe ('Fluxos do ecommerce', () => {
 
         //Data Driven tests
         categorypage.CATEGORIES.forEach(category => {
-            it(`Acessar a categoria ${category}`, () => {
+            it.skip(`Acessar a categoria ${category}`, () => {
                 // cy.get('#block_top_menu > ul > li:nth-child(3) > a').click();
                 homepage.acessarCategoria(category);
                 // cy.get('.breadcrumb').should('contain.text', 'T-shirts');
@@ -37,7 +39,15 @@ describe ('Fluxos do ecommerce', () => {
     });
 
 
-    it ('Realizar Login',() => {
-        homepage.cadastrarUsuário();
+    it.skip('Realizar Login',() => {
+        homepage.acessarCadastro();
+        cadastropage.logar();
+        accountpage.validarCadastroRealizadoComSucesso();
+    });
+
+    it('Criando conta', () => {
+        homepage.acessarCadastro();
+        cadastropage.fazerCadastro();
+        criacadastropage.preencherFormulario();
     });
 });

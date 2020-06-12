@@ -4,8 +4,8 @@ class Home {
     acessarCategoria(category){
         cy.get(`a[title=${category}]`).last().click();
     }
-    cadastrarUsuário(){
-        cy.get('a[title="Log in to your customer account"]').click();
+    acessarCadastro(){
+        cy.get(el.sign_in).click();
     }
 }
 
